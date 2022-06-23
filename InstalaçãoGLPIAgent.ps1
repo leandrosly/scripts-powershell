@@ -11,7 +11,11 @@ $msi32 = "https://github.com/glpi-project/glpi-agent/releases/download/1.3/GLPI-
 
 # Versão do instalador atualizado:
 $versao = "1.3"
-$match = 'This is GLPI Agent ' + $versao
+
+# Endereço do servidor:
+$servidor = "glpi.ipassp.intra"
+
+####################################################
 
 Function Instalar {
 
@@ -36,6 +40,8 @@ if ((Get-Service -Name "*FusionInventory*" -ErrorAction SilentlyContinue) -ne $n
 
 # Verifica se o agente glpi ja esta instalado
 if ((Get-Service -Name "*glpi-agent*" -ErrorAction SilentlyContinue) -ne $null) {
+
+  $match = 'This is GLPI Agent ' + $versao
 
   # Se a versao instalada nao for a atual, instalar a nova
   if ((Invoke-WebRequest -Uri "http://localhost:62354" -UseBasicParsing).Content -notmatch $match) {
