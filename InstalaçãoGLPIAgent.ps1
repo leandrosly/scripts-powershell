@@ -12,6 +12,9 @@ $msi32 = "https://github.com/glpi-project/glpi-agent/releases/download/1.3/GLPI-
 # Versão do instalador atualizado:
 $versao = "1.3"
 
+# Tag para selecionar entidade
+$tag = "IPASSP"
+
 # Endereço do servidor:
 $servidor = "glpi.ipassp.intra"
 
@@ -21,11 +24,11 @@ Function Instalar {
 
   if ([Environment]::Is64BitProcess) {
 
-    msiexec /i $msi64 SERVER=glpi.ipassp.intra /qn
+    msiexec /i $msi64 SERVER=$servidor TAG=$tag /qn
 
   } else {
 
-    msiexec /i $msi32 SERVER=glpi.ipassp.intra /qn
+    msiexec /i $msi32 SERVER=$servidor TAG=$tag /qn
 
   }
 
