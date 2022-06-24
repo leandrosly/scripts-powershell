@@ -24,11 +24,11 @@ Function Instalar {
 
   if ([Environment]::Is64BitProcess) {
 
-    msiexec /i $msi64 SERVER=$servidor TAG=$tag /qn
+    msiexec /i $msi64 SERVER=$servidor TAG=$tag RUNNOW=1 /qn
 
   } else {
 
-    msiexec /i $msi32 SERVER=$servidor TAG=$tag /qn
+    msiexec /i $msi32 SERVER=$servidor TAG=$tag RUNNOW=1 /qn
 
   }
 
