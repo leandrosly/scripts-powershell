@@ -13,7 +13,7 @@ $msi = "https://github.com/darkbrain-fc/HardwareSupervisor/releases/download/0.3
 
 Function Instalar {
 
-    msiexec /i $msi /qn
+    Start-Process -Wait -FilePath "msiexec" -ArgumentList "/i $msi /qn"
 
 }
 
@@ -24,6 +24,7 @@ if ((Get-Service -Name "*hardwaresupervisor*" -ErrorAction SilentlyContinue) -ne
 
 } else {
 
+  echo "Instalar"
   Instalar
 
 }

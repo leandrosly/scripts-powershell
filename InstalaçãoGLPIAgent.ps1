@@ -24,7 +24,7 @@ Function Instalar {
 
   if ([Environment]::Is64BitProcess) {
 
-    msiexec /i $msi64 SERVER=$servidor TAG=$tag RUNNOW=1 /qn
+    Start-Process -Wait -FilePath "msiexec" -ArgumentList "/i $msi64 SERVER=$servidor TAG=$tag RUNNOW=1 /qn"
 
   } else {
 
@@ -37,6 +37,7 @@ Function Instalar {
 # Verificar se o fusion esta instalado e remover
 if ((Get-Service -Name "*FusionInventory*" -ErrorAction SilentlyContinue) -ne $null) {
 
+  echo "Remover servico do fusion"
   Stop-Service 'FusionInventory-Agent'; Get-CimInstance -ClassName Win32_Service -Filter "Name='FusionInventory-Agent'" | Remove-CimInstance
 
 }
@@ -49,6 +50,7 @@ if ((Get-Service -Name "*glpi-agent*" -ErrorAction SilentlyContinue) -ne $null) 
   # Se a versao instalada nao for a atual, instalar a nova
   if ((Invoke-WebRequest -Uri "http://localhost:62354" -UseBasicParsing).Content -notmatch $match) {
 
+    echo "Atualizar"
     Instalar
 
   } else {
@@ -59,6 +61,7 @@ if ((Get-Service -Name "*glpi-agent*" -ErrorAction SilentlyContinue) -ne $null) 
 
 } else {
 
+  echo "Atualizar"
   Instalar
 
 }
