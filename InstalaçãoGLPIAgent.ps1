@@ -4,13 +4,13 @@
 # https://github.com/glpi-project/glpi-agent/releases
 
 # Arquivo de instalação 64 bits:
-$msi64 = "https://github.com/glpi-project/glpi-agent/releases/download/1.3/GLPI-Agent-1.3-x64.msi"
+$msi64 = "https://github.com/glpi-project/glpi-agent/releases/download/1.4/GLPI-Agent-1.4-x64.msi"
 
 # Arquivo de instalação 32 bits:
-$msi32 = "https://github.com/glpi-project/glpi-agent/releases/download/1.3/GLPI-Agent-1.3-x86.msi"
+$msi32 = "https://github.com/glpi-project/glpi-agent/releases/download/1.4/GLPI-Agent-1.4-x86.msi"
 
 # Versão do instalador atualizado:
-$versao = "1.3"
+$versao = "1.4"
 
 # Tag para selecionar entidade
 $tag = "IPASSP"
