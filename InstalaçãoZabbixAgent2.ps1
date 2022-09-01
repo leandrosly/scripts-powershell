@@ -4,13 +4,13 @@
 # https://cdn.zabbix.com/zabbix/binaries/stable/6.0/
 
 # Arquivo de instalação 64 bits:
-$msi64="https://cdn.zabbix.com/zabbix/binaries/stable/6.0/6.0.5/zabbix_agent2-6.0.5-windows-amd64-openssl.msi"
+$msi64="https://cdn.zabbix.com/zabbix/binaries/stable/6.2/6.2.1/zabbix_agent2-6.2.1-windows-amd64-openssl.msi"
 
 # Arquivo de instalação 32 bits:
 $msi32="https://cdn.zabbix.com/zabbix/binaries/stable/6.0/6.0.5/zabbix_agent2-6.0.5-windows-i386-openssl.msi"
 
 # Versão do instalador atualizado:
-$versao="6.0.5"
+$versao="6.2.1"
 
 # Endereço do servidor:
 $servidor = "zabbix.ipassp.intra"
@@ -47,9 +47,9 @@ if ((Get-Service -Name "zabbix agent*" -ErrorAction SilentlyContinue) -ne $null)
 
   } else {
 
-  echo "Ja instalado"
+    echo "Ja instalado"
 
-}
+  }
 
 } else {
 
